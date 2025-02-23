@@ -1,5 +1,5 @@
 // React imports
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 // Third party libraries imports
 import { HStack, InputProps, useColorModeValue } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ import { GenericImage } from 'components';
 
 const Navbar: FC = () => {
 
-    const { updateSearch, deselectGenre, selectOrderOption, selectPlatform } = useGamesParams();
+    const { updateSearch, deselectGenre, selectOrderOption, selectPlatform, search } = useGamesParams();
 
     const navigate = useNavigate();
 
@@ -28,14 +28,14 @@ const Navbar: FC = () => {
         borderColor,
     });
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         navigate('/');
         // Reset all the flags
         deselectGenre();
         handleUpdateSearch("");
         selectOrderOption(null);
         selectPlatform(null);
-    };
+    }, []);
 
     return (
         <HStack padding={'1rem'}>

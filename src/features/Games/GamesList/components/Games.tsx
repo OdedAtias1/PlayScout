@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Box } from '@chakra-ui/react';
 // FS imports
 import { useOnScrollBottom } from 'hooks';
-import { useFetchGames } from 'src/features/Games/GamesList/hooks';
+import { useFetchGames } from 'features/Games/GamesList/hooks';
 import { GamesList, GamesListErrorMessage, GamesListLoader } from 'features/Games/GamesList/components';
 
 const Games: FC = () => {
